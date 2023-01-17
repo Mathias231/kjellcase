@@ -3,7 +3,7 @@ export type FagRatingArray = [string[], ...Array<[string, ...number[]]>];
 export type FagRatingArrayWithoutHeaders = [...Array<[string, ...number[]]>];
 
 async function fetchData() {
-  const file = await readFile('./lib/data/data.csv', 'utf-8');
+  const file = await readFile('./lib/data/fakeData.csv', 'utf-8');
 
   const allData = file.split(/\r?\n/).map((line: string, i) => {
     let [FAG, SPM1, SPM2, SPM3, SPM4, SPM5] = line.split(',').map((l) => {

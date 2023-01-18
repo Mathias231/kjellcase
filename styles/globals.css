@@ -1,13 +1,27 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
-}
+} */
 
 .chart-container {
-  display: grid;
-  grid-template-columns: 2fr 6fr;
+ margin-top: 10px;
 }
 
 .selectDiv {
+  display: flex;
+  justify-content: center;
+}
 
+.selectChart {
+  text-align: center;
+  width: 300px;
+}
+
+.selectFag {
+  text-align: center;
+  width: 300px;
+}
+
+.message {
+    text-align: center;
 }

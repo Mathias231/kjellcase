@@ -1,21 +1,14 @@
 import { useEffect, useState } from 'react';
-import { ChartData, fetchData, fetchFag } from '../lib/client/fetchServerData';
-import ChartComponent from '../components/barChart';
-import { FagRatingArrayWithoutHeaders } from '../lib/data/fetchData';
+import { fetchData, fetchFag } from '../lib/client/fetchServerData';
 import ChartList from '../components/chartList';
 import Head from 'next/head';
 
 // Interfaces
-interface IOption {
-  value: string;
-  label: string;
-}
-
-interface IFagOptions {
-  value: string;
-  label: string;
-  selected: boolean;
-}
+import {
+  IFagOptions,
+  FagRatingArrayWithoutHeaders,
+  ChartData,
+} from '../interfaces/options.interface';
 
 export default function Home() {
   // States

@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import fetchData from '../../lib/data/fetchData';
 
-type Data = {
-  data: string[];
-};
+// Types
+import { Data } from '../../interfaces/options.interface';
 
 export default async function handler(
   _req: NextApiRequest,

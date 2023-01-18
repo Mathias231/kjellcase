@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleChartWrapperChartType } from 'react-google-charts';
 import Select, { MultiValue, SingleValue } from 'react-select';
+import ChartComponent from './barChart';
 
-import ChartComponent, { IChartComponentProps } from './barChart';
-
-interface IOption {
-  value: string;
-  label: string;
-}
-interface IFagOptions {
-  value: string;
-  label: string;
-  selected: boolean;
-}
+// Interfaces
+import {
+  IOption,
+  IFagOptions,
+  IChartComponentProps,
+} from '../interfaces/options.interface';
 
 // Options for Select button
 const options: IOption[] = [

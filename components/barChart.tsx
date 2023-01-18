@@ -1,23 +1,9 @@
 // Imports
-import React, { useState, useEffect } from 'react';
-import Select, { SingleValue, MultiValue } from 'react-select';
+import React from 'react';
 import { Chart } from 'react-google-charts';
-import { GoogleChartWrapperChartType } from 'react-google-charts/dist/types';
-import { ChartData, fetchData, fetchFag } from '../lib/client/fetchServerData';
-import { FagRatingArrayWithoutHeaders } from '../lib/data/fetchData';
 
 // Interfaces
-// interface IFagOptions {
-//   value: string;
-//   label: string;
-//   selected: boolean;
-// }
-
-export interface IChartComponentProps {
-  headers: ChartData;
-  chartData: FagRatingArrayWithoutHeaders;
-  chartType: GoogleChartWrapperChartType;
-}
+import { IChartComponentProps } from '../interfaces/options.interface';
 
 function ChartComponent({
   chartData,

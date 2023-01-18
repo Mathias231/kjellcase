@@ -2,10 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import fetchData from '../../lib/data/fetchData';
 
-interface IFag {
-  fag: string;
-  ratings: number[][];
-}
+// Interfaces
+import { IFag } from '../../interfaces/options.interface';
 
 export default async function handler(
   _req: NextApiRequest,

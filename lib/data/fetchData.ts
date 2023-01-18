@@ -1,6 +1,7 @@
 import { readFile } from 'fs/promises';
-export type FagRatingArray = [string[], ...Array<[string, ...number[]]>];
-export type FagRatingArrayWithoutHeaders = [...Array<[string, ...number[]]>];
+
+// Types
+import { FagRatingArray } from '../../interfaces/options.interface';
 
 async function fetchData() {
   const file = await readFile('./lib/data/fakeData.csv', 'utf-8');

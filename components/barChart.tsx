@@ -25,14 +25,10 @@ function ChartComponent({
   chartType,
 }: IChartComponentProps) {
   if (chartData === null || typeof chartData[0] === 'undefined')
-    return <div>Loading...</div>;
+    return <div className="message">Velg et fag...</div>;
 
   return (
     <div className="chart-container">
-      <div className="selectDiv">
-        {/* <Select options={options} onChange={handleChange} />
-        <Select isMulti={true} options={fagList} onChange={handleFagChange} /> */}
-      </div>
       <Chart
         chartType={chartType}
         data={[headers, ...chartData]}

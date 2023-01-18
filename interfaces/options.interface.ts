@@ -13,6 +13,11 @@ export interface IFagOptions {
   selected: boolean;
 }
 
+export interface IFag {
+  fag: string;
+  ratings: number[][];
+}
+
 export interface IChartComponentProps {
   headers: ChartData;
   chartData: FagRatingArrayWithoutHeaders;
@@ -24,3 +29,6 @@ export type FagRatingArray = [string[], ...Array<[string, ...number[]]>];
 export type FagRatingArrayWithoutHeaders = [...Array<[string, ...number[]]>];
 export type ChartData = (string | number)[];
 export type FagArray = string[];
+export type Data = {
+  data: string[];
+};

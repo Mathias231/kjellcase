@@ -29,13 +29,18 @@ interface chartListProps extends Omit<IChartComponentProps, 'chartType'> {
 }
 
 function ChartList({ headers, fagListData, chartData }: chartListProps) {
+  // States
   const [fagList, setFagList] = useState<IFagOptions[]>([]);
   const [chartType, setChartType] =
     useState<GoogleChartWrapperChartType>('ColumnChart');
+
+  // Fetching fagListData
   useEffect(() => {
     setFagList(fagListData);
     return;
   }, [fagListData]);
+
+  // Sorting the data and then filtering it
   const filtered = chartData
     .sort((a, b) => {
       return a[0].toString().localeCompare(b[0].toString());
@@ -48,6 +53,10 @@ function ChartList({ headers, fagListData, chartData }: chartListProps) {
       return foundSelected;
     });
 
+  /**
+   * It sets the chart type to the value of the selected option.
+   * @param e - SingleValue<IOption>
+   */
   const handleChange = (e: SingleValue<IOption>) => {
     setChartType(e?.value as GoogleChartWrapperChartType);
   };
@@ -64,12 +73,18 @@ function ChartList({ headers, fagListData, chartData }: chartListProps) {
       });
     });
   };
-  console.log(filtered);
+
   return (
     <div>
-      <div>
-        <Select options={options} onChange={handleChange} />
-        <Select isMulti={true} options={fagList} onChange={handleFagChange} />
+      <div className="selectDiv">
+        <div className="selectChart">
+          <h2>Velg Graf</h2>
+          <Select options={options} onChange={handleChange} />
+        </div>
+        <div className="selectFag">
+          <h2>Velg Fag</h2>
+          <Select isMulti={true} options={fagList} onChange={handleFagChange} />
+        </div>
       </div>
       <ChartComponent
         chartData={filtered}

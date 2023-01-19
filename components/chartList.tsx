@@ -1,3 +1,4 @@
+// Imports
 import React, { useEffect, useState } from 'react';
 import { GoogleChartWrapperChartType } from 'react-google-charts';
 import Select, { MultiValue, SingleValue } from 'react-select';
@@ -24,24 +25,28 @@ interface chartListProps extends Omit<IChartComponentProps, 'chartType'> {
 }
 
 function ChartList({ headers, fagListData, chartData }: chartListProps) {
-  // States
+  // Declaring states
   const [fagList, setFagList] = useState<IFagOptions[]>([]);
   const [chartType, setChartType] =
-    useState<GoogleChartWrapperChartType>('ColumnChart');
+    useState<GoogleChartWrapperChartType>('ColumnChart'); // Default chart dispaly. One subject must be selected for chart to take effect.
 
-  // Fetching fagListData
+  // Sets fagList variable with all subjects
   useEffect(() => {
+    console.log(fagListData);
     setFagList(fagListData);
     return;
   }, [fagListData]);
 
-  // Sorting the data and then filtering it
+  // Sorts subjects and then filters
   const filtered = chartData
     .sort((a, b) => {
-      return a[0].toString().localeCompare(b[0].toString());
+      // Determines whether two strings are equivalent in the current or specified locale.
+      return a[0].toString().localeCompare(b[0].toString()); // Returning number 1
     })
     .filter((fagRating) => {
       let name = fagRating[0].toString();
+
+      // Finds selected subject
       let foundSelected = fagList.find((selectedFag) => {
         return selectedFag.selected && selectedFag.value === name;
       });

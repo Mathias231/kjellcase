@@ -1,3 +1,4 @@
+// Imports
 import { readFile } from 'fs/promises';
 
 // Types

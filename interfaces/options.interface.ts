@@ -1,4 +1,4 @@
-// Import
+// Imports
 import { GoogleChartWrapperChartType } from 'react-google-charts';
 
 // Defined Interfaces

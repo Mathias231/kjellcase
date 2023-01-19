@@ -15,7 +15,6 @@ const options: IOption[] = [
   { value: 'AreaChart', label: 'AreaChart' },
   { value: 'Bar', label: 'Bar' },
   { value: 'BarChart', label: 'BarChart' },
-  { value: 'BubbleChart', label: 'BubbleChart' },
   { value: 'ColumnChart', label: 'ColumnChart' },
   { value: 'ScatterChart', label: 'ScatterChart' },
 ];

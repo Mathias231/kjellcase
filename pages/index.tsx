@@ -16,6 +16,7 @@ export default function Home() {
     useState<FagRatingArrayWithoutHeaders | null>(null);
   const [headers, setHeaders] = useState<ChartData>([]);
   const [fagList, setFagList] = useState<IFagOptions[]>([]);
+  const [themeMode, setThemeMode] = useState<boolean>(true);
   // Fetching data from readFile.ts
   useEffect(() => {
     fetchData().then((data) => {
@@ -44,12 +45,32 @@ export default function Home() {
     });
   }, []);
 
+  // Change light/dark mode
+  const changeColorTheme = () => {
+    setThemeMode(!themeMode);
+
+    console.log(themeMode);
+    if (themeMode) {
+      document.documentElement.style.setProperty('--bg-color', '#323639'); // Background color
+      document.documentElement.style.setProperty('--text-color', 'white'); // h2 text color
+    } else {
+      document.documentElement.style.setProperty('--bg-color', 'white');
+      document.documentElement.style.setProperty('--text-color', 'black'); // h2 text color
+    }
+  };
   return (
     <>
       <Head>
         <title>Kjellcase</title>
       </Head>
       <main>
+        <div>
+          <input type="file" name="file" id="file" className="inputFile" />
+          <label htmlFor="file">Choose a file</label>
+        </div>
+        <div>
+          <button onClick={changeColorTheme}>Change color</button>
+        </div>
         {chartData && (
           <ChartList
             chartData={chartData}
